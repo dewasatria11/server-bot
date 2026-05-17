@@ -1,0 +1,50 @@
+PANDUAN DEPLOY KE VERCEL
+
+1. Pastikan file utama chatbot sudah siap
+   - File saat ini: chatbot-antigravity.html
+   - Kalau mau jadi halaman utama, rename menjadi index.html sebelum deploy.
+
+2. Login ke Vercel
+   - Buka https://vercel.com
+   - Login pakai GitHub, GitLab, Bitbucket, atau email.
+
+3. Upload project
+   Cara paling mudah:
+   - Buat folder project berisi file index.html
+   - Drag and drop folder ke dashboard Vercel
+   - Klik Deploy
+
+   Cara lewat GitHub:
+   - Upload project ke repository GitHub
+   - Di Vercel klik Add New Project
+   - Pilih repository
+   - Klik Deploy
+
+4. Catatan penting API key
+   Saat ini API key masih ada di file HTML/JavaScript.
+   Kalau deploy seperti ini, API key bisa dilihat orang lain dari browser.
+
+   Aman untuk testing pribadi.
+   Tidak disarankan untuk website publik.
+
+5. Solusi yang lebih aman
+   Gunakan API proxy/serverless function di Vercel.
+   Simpan API key di Environment Variables Vercel, bukan langsung di HTML.
+
+   Contoh environment variables:
+   - API_BASE_URL=https://api.alikhsan-beji.app/v1
+   - CHAT_API_KEY=isi_api_key_chat
+   - IMAGE_API_KEY=isi_api_key_gambar
+
+6. Kemungkinan masalah saat deploy
+   - Kalau request API gagal, cek CORS dari API.
+   - Kalau upload PDF/DOCX/XLSX tidak jalan, pastikan CDN library bisa diakses.
+   - Kalau gambar tidak bisa dibaca AI, kemungkinan model chat belum support vision.
+
+7. Setelah deploy
+   - Buka URL dari Vercel.
+   - Coba chat biasa.
+   - Coba generate gambar dengan prompt: buatkan gambar kota futuristik saat hujan
+   - Coba upload file kecil PDF/DOCX/CSV/XLSX.
+
+SELESAI
